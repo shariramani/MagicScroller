@@ -7,9 +7,26 @@
 #include <WiFiUdp.h>
 #include <ESP8266WebServer.h>
 
+
+// Turn on debug statements to the serial output
+#define  DEBUG  1
+
+#if  DEBUG
+#define  PRINT(s, x) { Serial.print(F(s)); Serial.print(x); }
+#define PRINTS(x) Serial.print(F(x))
+#define PRINTD(x) Serial.println(x, DEC)
+
+#else
+#define PRINT(s, x)
+#define PRINTS(x)
+#define PRINTD(x)
+
+#endif
+
+
 ESP8266WebServer server(80);
-const char ssid[] = "Suresh";  //  your network SSID (name)
-const char pass[] = "18041974";       // your network password
+const char ssid[] = "xxxxxx";  //  your network SSID (name)
+const char pass[] = "xxxxxxxx";       // your network password
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //NTP CODE
@@ -44,24 +61,6 @@ String myDate;
 //Pin assignment and LED Matrix related stuff
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-
-
-
-// Turn on debug statements to the serial output
-#define  DEBUG  1
-
-#if  DEBUG
-#define  PRINT(s, x) { Serial.print(F(s)); Serial.print(x); }
-#define PRINTS(x) Serial.print(F(x))
-#define PRINTD(x) Serial.println(x, DEC)
-
-#else
-#define PRINT(s, x)
-#define PRINTS(x)
-#define PRINTD(x)
-
-#endif
-
 // Define the number of devices we have in the chain and the hardware interface
 // NOTE: These pin numbers will probably not work with your hardware and may 
 // need to be adapted
@@ -78,8 +77,7 @@ MD_MAX72XX mx = MD_MAX72XX(CS_PIN, MAX_DEVICES);
 // MD_MAX72XX mx = MD_MAX72XX(DATA_PIN, CLK_PIN, CS_PIN, MAX_DEVICES);
 
 // We always wait a bit between updates of the display 
-#define  DELAYTIME  33  // in milliseconds default 100 (it is scroll speed).tested works well at 40.
-
+#define  DELAYTIME  100  // in milliseconds. Lower the value, higher the scroll speed.
 
 
 void setup()
