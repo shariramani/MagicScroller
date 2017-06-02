@@ -1,6 +1,18 @@
-// Magic Scroller by Vatsal and Suresh Hariramani
-//Program to exercise the MD_MAX72XX library
-// Uses most of the functions in the library
+/*
+Magic Scroller by Vatsal and Suresh Hariramani
+Based on Program to exercise the MD_MAX72XX library, Uses most of the functions in the library
+
+Part 1: Clock - Scroll Date and Time (NTP Client)
+
+
+TO DO
+Part 2: Scroll custom message
+Part 3: Scroll RSS feeds (News, Quote of the Day, Cricket Live from cricinfo)
+Part 4: Lets Schedule what you want to scroll, interface with google calendar
+Part 5: Add a webpage to choose whatever you want to scroll
+*/
+
+
 #include <MD_MAX72xx.h>
 #include <SPI.h>
 #include <ESP8266WiFi.h>
@@ -833,9 +845,6 @@ str2scroll.toCharArray(str2scroll_charArray, str2scroll_len);
 scrollText(str2scroll_charArray);
 }
 
-/////////////////////////////////////////////////////////////////////////////////////////
-//TO DO
-/////////////////////////////////////////////////////////////////////////////////////////
 
 
  
